@@ -1,6 +1,7 @@
 import discord
 import time
-
+import humanfriendly
+from config import start_time, time
 
 from discord.ext import commands
 
@@ -31,6 +32,12 @@ class Misc(commands.Cog):
             )
         )
     
+
+    @commands.command()
+    @commands.cooldown(1, 3, commands.BucketType.user)
+    async def uptime(self, ctx):
+        """Check my uptime."""
+        await ctx.send(f"My Uptime: {humanfriendly.format_timespan(time.time()-start_time)}")
 
 
 def setup(bot):

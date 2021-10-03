@@ -1,4 +1,4 @@
-import os
+import os, time
 
 try:
     import dotenv
@@ -14,3 +14,5 @@ class Config:
         self.log_webhook_token: str = os.environ["WEBHOOK_TOKEN"]
         self.log_webhook_id = os.environ["WEBHOOK_ID"]
         self.database_url = os.environ["DATABASE_URL"]
+
+start_time = time.time()
