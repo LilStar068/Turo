@@ -10,6 +10,15 @@ class Misc(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    async def ping(self, ctx):
+        """ Pong! """
+        before = time.monotonic()
+        before_ws = int(round(self.bot.latency * 1000, 1))
+        message = await ctx.send("🏓 Pong")
+        ping = (time.monotonic() - before) * 1000
+        await message.edit(content=f"🏓 WS: {before_ws}ms  |  REST: {int(ping)}ms")
+
+    @commands.command()
     @commands.cooldown(1, 3, commands.BucketType.user)
     async def invite(self, ctx):
         f""" "Invite {self.bot.user.name} to your server!"""
@@ -21,6 +30,7 @@ class Misc(commands.Cog):
                 url=f"https://discord.com/oauth2/authorize?client_id={self.bot.user.id}&permissions=8&scope=bot%20applications.commands",
             )
         )
+    
 
 
 def setup(bot):
