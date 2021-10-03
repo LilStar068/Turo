@@ -1,0 +1,7 @@
+git+https://github.com/Sengolda/discord.py@master
+git+https://github.com/Rapptz/discord-ext-menus@master
+jishaku
+psutil
+python-dotenv
+pyfiglet
+pymongo[srv]
